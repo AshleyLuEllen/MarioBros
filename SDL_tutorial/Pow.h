@@ -1,6 +1,9 @@
-//
-// Created by Ashley Lu Couch on 10/26/18.
-//
+/*
+ *
+ *
+ *
+ *
+ */
 
 #ifndef UNTITLED1_POW_H
 #define UNTITLED1_POW_H

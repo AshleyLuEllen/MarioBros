@@ -2,12 +2,17 @@
 //  Color.h
 //  SDL_tutorial
 //
-//  Created by Ashley Lu Couch on 11/12/18.
-//  Copyright © 2018 Ashley Lu Couch. All rights reserved.
-//
+/*
+ *
+ *
+ *
+ *
+ */
 
 #ifndef Color_h
 #define Color_h
+
+#include <iostream>
 
 
 struct Color{
@@ -20,9 +25,9 @@ struct Color{
     }
     
     Color (){
-        R = rand()%256;
-        G = rand()%256;
-        B = rand()%256;
+        R = 0; //rand()%256;
+        G = 0; //rand()%256;
+        B = 0; //rand()%256;
     }
     
 };

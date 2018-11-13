@@ -1,6 +1,9 @@
-//
-// Created by Ashley Lu Couch on 10/26/18.
-//
+/*
+ *
+ *
+ *
+ *
+ */
 
 #include <iostream>
 #include "Characters.h"

@@ -1,10 +1,9 @@
-//
-//  Draw.cpp
-//  SDL_tutorial
-//
-//  Created by Ashley Lu Couch on 11/12/18.
-//  Copyright © 2018 Ashley Lu Couch. All rights reserved.
-//
+/*
+ *
+ *
+ *
+ *
+ */
 
 #include <stdio.h>
 #include "Draw.h"
