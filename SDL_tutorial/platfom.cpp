@@ -22,11 +22,14 @@ platform::platform(SDL_Plotter& p, int r, int c)
 
 void platform::makeLine(SDL_Plotter& p, int x1, int x2, int y)
 {
-  //Makes the line of a width of 2 pixel
-  for(int dx = x1; dx < x2; dx++)
-  {
-    p.plotPixel(dx, y, 95, 105, 114);
-    p.plotPixel(dx, y - 1, 95, 105, 114);
+
+    const int widthOfLine = 10;
+    
+  //Makes the line of a width of constant
+  for(int xd = x1; xd < x2; xd++) {
+      for(int yd = 0; yd < widthOfLine; yd++ ){
+          p.plotPixel( xd, y - yd, 100, 100, 255);
+      }
   }
 
   p.update();
@@ -55,30 +58,34 @@ void platform::makePlatform(SDL_Plotter& p)
   makeLine(p, xLevel[2][0], xLevel[2][1], yLevel[1]);
 
   //Third Level
+    //right edge
   xLevel[3][0] = 0;
   xLevel[3][1] = (cols / 14) * 2;
   yLevel[2] = (rows / 10) * 5;
 
   makeLine(p, xLevel[3][0], xLevel[3][1], yLevel[2]);
 
-  xLevel[4][0] = (cols / 14) * 4;
-  xLevel[4][1] = (cols / 14) * 10;
-
-  makeLine(p, xLevel[4][0], xLevel[4][1], yLevel[2]);
-
+    //left edge
   xLevel[5][0] = (cols / 14) * 12;
   xLevel[5][1] = (cols / 14) * 14;
 
   makeLine(p, xLevel[5][0], xLevel[5][1], yLevel[2]);
+    
+    //middle
+  xLevel[4][0] = (cols / 14) * 4;
+  xLevel[4][1] = (cols / 14) * 10;
+    yLevel[2] = (rows / 10) * 4.5;
+  
+  makeLine(p, xLevel[4][0], xLevel[4][1], yLevel[2]);
 
   //Fourth Level
   xLevel[6][0] = 0;
-  xLevel[6][1] = (cols / 14) * 6;
-  yLevel[3] = (rows / 10) * 3;
+  xLevel[6][1] = (cols / 14) * 5.5;
+  yLevel[3] = (rows / 10) * 2.5;
 
   makeLine(p, xLevel[6][0], xLevel[6][1] , yLevel[3]);
 
-  xLevel[7][0] = (cols / 14) * 8;
+  xLevel[7][0] = (cols / 14) * 8.5;
   xLevel[7][1] = cols;
 
   makeLine(p, xLevel[7][0], xLevel[7][1], yLevel[3]);
