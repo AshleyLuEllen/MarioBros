@@ -13,18 +13,20 @@
 
 
 class Draw{
+private:
     
     
-void drawArray(SDL_Plotter & g, int s, int x_, int y_, int h, int w, Color **array);
+public:
+    
 
-
-
-
-
+    
 
 };
 
+void drawArray();
+void drawArray(SDL_Plotter & g, int s, int x_, int y_, int h, int w, Color array[][20]);
 
+void drawBackground(SDL_Plotter & g);
 
 
 

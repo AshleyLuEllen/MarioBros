@@ -9,7 +9,7 @@
 #include "Draw.h"
 
 
-void drawArray(SDL_Plotter & g, int s, int x_, int y_, int h, int w, Color **array){
+void drawArray(SDL_Plotter & g, int s, int x_, int y_, int h, int w, Color array[][20]){
     int height = h;
     int width = w;
     
@@ -27,4 +27,30 @@ void drawArray(SDL_Plotter & g, int s, int x_, int y_, int h, int w, Color **arr
             }
         }
     }
+}
+
+void drawBackground(SDL_Plotter & g){
+    
+    int x,y, xd, yd;
+    //makes the background black
+    for(x = 0; x < g.getCol(); x++ ){
+        for(y = 0; y < g.getRow(); y++ ){
+            g.plotPixel( x, y, BLACK);
+        }
+    }
+    g.update();
+    
+    const int GROUND_SCALE = 10;
+    //Makes an pixilated gray bar at the bottom on the screen
+    for (x = 0; x < g.getCol(); x+=GROUND_SCALE){
+        for (y = 720; y < g.getRow(); y+=GROUND_SCALE){
+            int num = rand()%30+170;
+            for(xd = 0; xd < GROUND_SCALE && x + xd < g.getCol(); xd++ ){
+                for(yd = 0; yd < GROUND_SCALE && y + yd < g.getRow(); yd++ ){
+                    g.plotPixel( x + xd, y + yd, num, num, num);
+                }
+            }
+        }
+    }
+    g.update();
 }
