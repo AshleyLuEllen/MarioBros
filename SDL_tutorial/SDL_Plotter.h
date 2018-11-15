@@ -12,6 +12,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2_mixer/SDL_mixer.h>
 #include <SDL2/SDL_thread.h>
+
 //Windows Library
 //#include <SDL2/SDL.h>
 //#include <SDL2/SDL_mixer.h>
