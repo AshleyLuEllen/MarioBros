@@ -16,6 +16,15 @@ platform::platform(SDL_Plotter& p, int r, int c)
   rows = r;
   cols = c;
 
+  //Create black background
+  for(int y = 0; y < rows; y++)
+  {
+    for(int x = 0; x < cols; x++)
+    {
+      p.plotPixel(x, y, 0, 0, 0);
+    }
+  }
+  
   makePlatform(p);
 
 }
