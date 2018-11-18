@@ -273,7 +273,7 @@ SDL_Surface* SDL_Plotter::loadImage(string imagename)
     return finalImage;
 }
 
-void displayImage(SDL_Surface* image, int x, int y)
+void SDL_Plotter::displayImage(SDL_Surface* image, int x, int y)
 {
     Uint32 *pixs = (Uint32 *)image->pixels;
     int width = image->w;
