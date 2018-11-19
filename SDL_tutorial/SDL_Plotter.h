@@ -123,6 +123,10 @@ public:
     
     void getMouseLocation(int &x, int &y);
     
+    SDL_Surface* loadImage(string imagename);
+    
+    void displayImage(SDL_Surface* image, int x, int y);
+    
 };
 
 #endif /* SDL_PLOTTER_H_ */

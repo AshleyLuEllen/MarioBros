@@ -15,10 +15,7 @@
 #include "Objects.h"
 #include "platform.h"
 
-
 using namespace std;
-
-
 
 int main(int argc, char ** argv){
     
@@ -29,74 +26,72 @@ int main(int argc, char ** argv){
     
     //draw background and platform
     drawBackground(g);
-    platform( g, 800, 1120);
-    
-    
-    
-    Color c0(51, 92, 24),
-    c1(63, 114, 28),
-    c2(101, 144, 69),
-    c3(40, 75, 15),
-    c4(168, 229, 255),
-    c5(BLACK),
-    c6(141, 184, 212);
-    
-    Color pickleArray[18][20] = {
-        {Color(c5), Color(c2), Color(c1), Color(c0), Color(c3), Color(c5)},
-        {Color(c2), Color(c0), Color(c0), Color(c0), Color(c0), Color(c0)},
-        {Color(c2), Color(c1), Color(c0), Color(c0), Color(c0), Color(c0)},
-        {Color(c2), Color(c4), Color(c4), Color(c4), Color(c6), Color(c0)},
-        {Color(c2), Color(c5), Color(c0), Color(c0), Color(c5), Color(c0)},
-        {Color(c2), Color(c1), Color(c0), Color(c0), Color(c1), Color(c3)},
-        {Color(c2), Color(c1), Color(c0), Color(c0), Color(c1), Color(c0)},
-        {Color(c2), Color(c1), Color(c0), Color(c0), Color(c1), Color(c0)},
-        {Color(c2), Color(c0), Color(c0), Color(c0), Color(c0), Color(c0)},
-        {Color(c2), Color(c1), Color(c0), Color(c0), Color(c0), Color(c0)},
-        {Color(c2), Color(c1), Color(c0), Color(c0), Color(c0), Color(c3)},
-        {Color(c0), Color(c1), Color(c0), Color(c0), Color(c0), Color(c0)},
-        {Color(c2), Color(c1), Color(c0), Color(c0), Color(c0), Color(c0)},
-        {Color(c2), Color(c1), Color(c0), Color(c0), Color(c0), Color(c0)},
-        {Color(c2), Color(c1), Color(c0), Color(c1), Color(c0), Color(c3)},
-        {Color(c2), Color(c1), Color(c0), Color(c1), Color(c0), Color(c3)},
-        {Color(c2), Color(c1), Color(c1), Color(c3), Color(c3), Color(c3)},
-        {Color(c5), Color(c2), Color(c3), Color(c0), Color(c3), Color(c5)} };
-    
-    Objects pickle( 18, 6);
-    
-    
+    platform plat( g, 800, 1120);
     
     //SDL_Plotter g, int scale, int xPosition, int yPosition, int array height,
     //int array width, and the array
     
-    drawArray( g, SCALE, 100, 100, 18, 6, pickleArray);
-    
-    
+    int count = 0;
+    int x = 100, y = 100;
     while (!g.getQuit()){
+        ++ count;
+        
+        if (count % 100 > 0 && count % 100 < 70){
+            
+        }else {
+            
+        }
         
         
+        drawPickleFlip( g, SCALE, x, y, 18, 6);
+        drawPickle( g, SCALE, x, y, 18, 6);
+        x+= SCALE;
+        
+        if (x > 1000){
+            x=100;
+            y += 150;
+        }
+        
+        int x = 50, y = 50;
+        g.displayImage(image, x, y);
+        
+        if(g.kbhit())
+        {
+            if(g.getKey() == 'W')
+            {
+                if(!plat.touchEdge(x, y - 82))
+                {
+                    y -= 2;
+                }
+            }
+            else if(g.getKey() == 'S')
+            {
+                if(!plat.touchEdge(x, y + 82))
+                {
+                    y += 2;
+                }
+            }
+            else if(g.getKey() == 'D')
+            {
+                if(!plat.touchEdge(x + 29, y))
+                {
+                    x += 2;
+                }
+            }
+            else if(g.getKey() == 'A')
+            {
+                if(!plat.touchEdge(x - 29, y))
+                {
+                    x -= 2;
+                }
+            }
+            
+            g.displayImage(image, x, y);
+            
+        }
         
         g.update();
-        if(g.kbhit()){
-            g.getKey();
-        }
+
     }
 }
 
-
-/*
- x = rand()%g.getCol();
- y = rand()%(g.getRow()/16)+750;
- 
- 
- 
- Color object;
- x = rand()%g.getCol();
- y = rand()%g.getRow();
- 
- for(xd = 0; xd < 10 && x + xd < g.getCol(); xd++ ){
-    for(yd = 0; yd < 10 && y + yd < g.getRow(); yd++ ){
-        //g.plotPixel( x + xd, y + yd, 255, 255, 255);
-        g.plotPixel( x + xd, y + yd, WHITE);
-    }
- }
- */
