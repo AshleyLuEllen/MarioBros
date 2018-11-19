@@ -10,9 +10,6 @@
 #include "Objects.h"
 #include "Color.h"
 
-/*
-Objects pickle( 18, 6, Color pickle[18][6]);
-
 Color c0(51, 92, 24),
 c1(63, 114, 28),
 c2(101, 144, 69),
@@ -41,4 +38,4 @@ Color pickle[18][6] = {
     {Color(c2), Color(c1), Color(c1), Color(c3), Color(c3), Color(c3)},
     {Color(c5), Color(c2), Color(c3), Color(c0), Color(c3), Color(c5)} };
 
-*/
+
