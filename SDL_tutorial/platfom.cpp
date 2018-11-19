@@ -107,7 +107,7 @@ bool platform::touchEdge(int x, int y)
 {
   bool isTouch = false;
 
-  if(y <= yLevel[0] && y >= yLevel[0] - 1)//Check is coordinates touches the floor acounting thickness of platform
+  if(y <= yLevel[0] && y >= yLevel[0] - 1)//Check if coordinates touches the floor acounting thickness of platform
     isTouch = true;
   else if(y <= yLevel[1] && y >= yLevel[1] - 1)
   {
