@@ -1,8 +1,10 @@
 /*
  * SDL_Plotter.h
  * Version 2.1
- *  1/26/2018
- *  Dr. Booth
+ *  Author: Dr. Booth
+ *  Date Created: 1/26/2018
+ *  Modified by: Ashley Couch and Alejandro Navarro
+ *  Date Last Modified: 11/18/2018
  */
 
 #ifndef SDL_PLOTTER_H_
@@ -126,7 +128,7 @@ public:
     SDL_Surface* loadImage(string imagename);
     
     void displayImage(SDL_Surface* image, int x, int y);
-    
+
 };
 
 #endif /* SDL_PLOTTER_H_ */

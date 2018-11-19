@@ -263,26 +263,25 @@ SDL_Surface* SDL_Plotter::loadImage(string imagename)
     SDL_Surface* finalImage = NULL;
     SDL_Surface* loadedImage = SDL_LoadBMP(imagename.c_str());
     SDL_Surface* screen = SDL_GetWindowSurface(window);
-    
     if(loadedImage != NULL)
     {
-        finalImage = SDL_ConvertSurface(loadedImage, screen->format, NULL);
+      finalImage = SDL_ConvertSurface(loadedImage, screen->format, NULL);
     }
     SDL_FreeSurface(loadedImage);
-    
+
     return finalImage;
 }
 
-void displayImage(SDL_Surface* image, int x, int y)
+void SDL_Plotter::displayImage(SDL_Surface* image, int x, int y)
 {
     Uint32 *pixs = (Uint32 *)image->pixels;
     int width = image->w;
     int height = image->h;
     for(int r = 0; r < height; r++)
     {
-        for(int c = 0; c < width; c++)
-        {
-            pixels[ ( (y + r) * col ) + ((x - (width  / 2)) + c) ] = pixs[ ( r * width ) + c];
-        }
+      for(int c = 0; c < width; c++)
+      {
+        pixels[ ( (y + r) * col ) + ((x - (width  / 2)) + c) ] = pixs[ ( r * width ) + c];
+      }
     }
-    }
+}
