@@ -67,34 +67,35 @@ void platform::makePlatform(SDL_Plotter& p)
   makeLine(p, xLevel[2][0], xLevel[2][1], yLevel[1]);
 
   //Third Level
-    //right edge
+    //left edge
   xLevel[3][0] = 0;
   xLevel[3][1] = (cols / 14) * 2;
   yLevel[2] = (rows / 10) * 5;
 
   makeLine(p, xLevel[3][0], xLevel[3][1], yLevel[2]);
-
-    //left edge
+ 
+  //middle
+  xLevel[4][0] = (cols / 14) * 4;
+  xLevel[4][1] = (cols / 14) * 10;
+  
+  makeLine(p, xLevel[4][0], xLevel[4][1], yLevel[2]);
+  
+    //right edge
   xLevel[5][0] = (cols / 14) * 12;
   xLevel[5][1] = (cols / 14) * 14;
 
   makeLine(p, xLevel[5][0], xLevel[5][1], yLevel[2]);
     
-    //middle
-  xLevel[4][0] = (cols / 14) * 4;
-  xLevel[4][1] = (cols / 14) * 10;
-    yLevel[2] = (rows / 10) * 4.5;
-  
-  makeLine(p, xLevel[4][0], xLevel[4][1], yLevel[2]);
+   
 
   //Fourth Level
   xLevel[6][0] = 0;
-  xLevel[6][1] = (cols / 14) * 5.5;
-  yLevel[3] = (rows / 10) * 2.5;
+  xLevel[6][1] = (cols / 14) * 6;
+  yLevel[3] = (rows / 10) * 3;
 
   makeLine(p, xLevel[6][0], xLevel[6][1] , yLevel[3]);
 
-  xLevel[7][0] = (cols / 14) * 8.5;
+  xLevel[7][0] = (cols / 14) * 8;
   xLevel[7][1] = cols;
 
   makeLine(p, xLevel[7][0], xLevel[7][1], yLevel[3]);
@@ -107,19 +108,19 @@ bool platform::touchEdge(int x, int y)
 {
   bool isTouch = false;
 
-  if(y <= yLevel[0] && y >= yLevel[0] - 1)//Check if coordinates touches the floor acounting thickness of platform
+  if(y <= yLevel[0] && y >= yLevel[0] - 10)//Check if coordinates touches the floor acounting thickness of platform
     isTouch = true;
-  else if(y <= yLevel[1] && y >= yLevel[1] - 1)
+  else if(y <= yLevel[1] && y >= yLevel[1] - 10)
   {
     if(x <= xLevel[1][1] || x >= xLevel[2][0])
       isTouch = true;
   }
-  else if(y <= yLevel[2] && y >= yLevel[2] - 1)
+  else if(y <= yLevel[2] && y >= yLevel[2] - 10)
   {
     if(x <= xLevel[3][1] || (x >= xLevel[4][0] && x < xLevel[4][1]) || x > xLevel[5][0])
       isTouch = true;
   }
-  else if(y <= yLevel[3] && y >= yLevel[3] - 1)
+  else if(y <= yLevel[3] && y >= yLevel[3] - 10)
   {
     if( x <= xLevel[6][1] || x >= xLevel[7][0])
       isTouch = true;
