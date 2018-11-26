@@ -12,9 +12,6 @@
 #ifndef Color_h
 #define Color_h
 
-#include <iostream>
-
-
 struct Color{
     int R, G, B;
     
