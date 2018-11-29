@@ -102,22 +102,26 @@ class platform
   bool touchPortal(int x, int y, int f, int l);
 
   /*
-  description:
-  return:
-  precondition:
-  postcondition:
+  description: returns true if the wall is touch
+  return: bool
+  precondition: the argument passed exist
+  postcondition: the platform object remains the same.
   */
   bool touchWall(int x, int y, int h, int w);
 
   /*
-  description:
-  return:
-  precondition:
-  postcondition:
+  description: returns the points of the enemy spawn
+  return: void
+  precondition: point exist and the enemy width is included.
+  postcondition: the platform object remains the same. 
   */
   void enemySpawn(Point p[], int enemyWidth);
 
   /*
+  description: returns the points in the top bar.
+  return: Point
+  precondition: platform exist and is valid.
+  postcondition: everything in the platform object remains the same.
   */
   Point topBar(int index);
 
