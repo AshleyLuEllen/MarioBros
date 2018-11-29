@@ -15,6 +15,9 @@ TopBar::TopBar(SDL_Plotter& plot)
   numbers[8] = plot.loadImage("8.bmp");
   numbers[9] = plot.loadImage("9.bmp");
 
+  rickhead = plot.loadImage("rickhead.bmp");
+  black = plot.loadImage("rickheadBlack.bmp");
+
   for(int i = 0; i < 6; i++)
     scores[i] = 0;
 
@@ -35,4 +38,23 @@ void TopBar::convertScore(int score, SDL_Plotter& plot, platform& plat){
     p.x += 5;
   }
 }
+
+void TopBar::lives(int lives, SDL_Plotter& plot, platform& plat)
+{
+  Point p;
+  p = plat.topBar(11);
+  for(int x = 0; x < 3; x ++)
+  {
+    plot.displayImage(black, p.x + ((x + 1) * black->w), p.y);
+    p.x += 5;
+  }
+
+  p = plat.topBar(11);
+  for(int x = 0; x < lives; x ++)
+  {
+    plot.displayImage(rickhead, p.x + ((x + 1) * rickhead->w), p.y);
+    p.x += 5;
+  }
+}
+
 

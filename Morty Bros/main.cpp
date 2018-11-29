@@ -132,9 +132,14 @@ int main(int argc, char ** argv)
       pickle.hit(plot, player.getX(), player.getY(), player.getHeight());
       enemyTime.reset();
       flipTime.reset();
-    }else if(flipTime.isComplete())
+    }
+    else if(flipTime.isComplete())
     {
       pickle.flipStanding();
+    }
+    else if(!pickle.getStanding())
+    {
+      pickle.displayUpsideDown(plot);
     }
 
     //Enemy: Mrmeseek**********************************************************
@@ -144,12 +149,18 @@ int main(int argc, char ** argv)
       mrmeeseek.hit(plot, player.getX(), player.getY(), player.getHeight());
       enemyTime2.reset();
       flipTime2.reset();
-    }else if(flipTime2.isComplete())
+    }
+    else if(flipTime2.isComplete())
     {
       mrmeeseek.flipStanding();
     }
+    else if(!mrmeeseek.getStanding())
+    {
+      mrmeeseek.displayUpsideDown(plot);
+    }
 
     topBar.convertScore(player.getScore(), plot, plat);
+    topBar.lives(player.getLives(), plot, plat);
 
   }
 

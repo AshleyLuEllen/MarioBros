@@ -55,6 +55,8 @@ public:
 
     bool touchEnemy(platform& plat, int x, int y, int w, int h);
 
+    void displayUpsideDown(SDL_Plotter& plot);
+
  };
 
 

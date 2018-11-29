@@ -20,12 +20,15 @@ class TopBar{
 private:
   int scores[6];
   SDL_Surface* numbers[10];
+  SDL_Surface* rickhead;
+  SDL_Surface* black;
 
 public:
 TopBar(SDL_Plotter& plot);
 
- void convertScore(int score, SDL_Plotter& plot, platform& plat);
+void convertScore(int score, SDL_Plotter& plot, platform& plat);
 
+void lives(int lives, SDL_Plotter& plot, platform& plat);
 
 
 

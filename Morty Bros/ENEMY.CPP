@@ -48,7 +48,7 @@ void Enemy::hit(SDL_Plotter& plot, int x, int y, int h){
   if(isHit)
   {
     flipStanding();
-    plot.displayImage(upsideDownImg, position.x, position.y);
+    displayUpsideDown(plot);
   }
 }
 
@@ -153,5 +153,10 @@ bool Enemy::touchEnemy(platform& plat, int x, int y, int w, int h)
   }
 
   return touch;
+}
+
+void Enemy::displayUpsideDown(SDL_Plotter& plot)
+{
+  plot.displayImage(upsideDownImg, position.x, position.y);
 }
 
