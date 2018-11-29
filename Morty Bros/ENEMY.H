@@ -29,6 +29,7 @@ private:
 
 
 public:
+     
     Enemy(string type, int s, int i, SDL_Plotter& plot, platform& plat);
 
     bool getStanding();

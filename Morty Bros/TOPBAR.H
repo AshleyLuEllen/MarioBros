@@ -1,9 +1,9 @@
 /*
 Author: Ashley
-Title: Player
-Description: implementation of the class Player
-Date Created: 11-20-2018
-Date Last Modified: 11-20-2018
+Title: TopBar
+Description: implementation of the class TopBar wich includes score
+Date Created: 11-27-2018
+Date Last Modified: 11-28-2018
 */
 
 #ifndef TOPBAR_H
@@ -22,9 +22,23 @@ private:
   SDL_Surface* numbers[10];
 
 public:
-TopBar(SDL_Plotter& plot);
-
- void convertScore(int score, SDL_Plotter& plot, platform& plat);
+    /*
+     description:   Creates a TopBar, loads the images for numbers 0-9,
+                    and initalizes scores to 0
+     return:        none
+     precondition:  plot is defined
+     postcondition: the number images are loaded, and scores initalized
+     */
+    TopBar(SDL_Plotter& plot);
+    
+    /*
+     description:   Convers int score to a char and displays the image to the window
+     return:        none
+     precondition:  score, plot, and play are all defined
+     postcondition: the score is converted and the associated images are displayed
+                    score is not altered
+     */
+    void convertScore(int score, SDL_Plotter& plot, platform& plat);
 
 
 
