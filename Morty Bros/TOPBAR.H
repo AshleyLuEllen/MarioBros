@@ -20,6 +20,8 @@ class TopBar{
 private:
   int scores[6];
   SDL_Surface* numbers[10];
+  SDL_Surface* rickhead;
+  SDL_Surface* black;
 
 public:
     /*
@@ -40,6 +42,13 @@ public:
      */
     void convertScore(int score, SDL_Plotter& plot, platform& plat);
 
+    /*
+     description:   lives are displayed and set
+     return:        none
+     precondition:  lives, plot, and plat defined
+     postcondition: lives are displayed and set
+     */
+void lives(int lives, SDL_Plotter& plot, platform& plat);
 
 
 

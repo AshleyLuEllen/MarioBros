@@ -109,7 +109,7 @@ bool Player::touchEnemy(platform& plat, int x, int y, int w, int h)
 
 void Player::die(SDL_Plotter& plot)
 {
-  lives--;
+  lives -= 1;
   movePlayer(plot, orgin.x, orgin.y);
 }
 
@@ -121,4 +121,9 @@ int Player::getScore()
 void Player::addScore(int s)
 {
   score += s;
+}
+
+int Player::getLives() const
+{
+  return lives;
 }
