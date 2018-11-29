@@ -123,23 +123,35 @@ class Player
   int getLives() const;
 
   /*
-  description:
-  return:
-  precondition:
-  postcondition:
+  description:  kills the player and removes one file
+  return: none
+  precondition: plot is defined
+  postcondition: the games quits if lives are less than 0
   */
   void die(SDL_Plotter& plot);
 
   /*
-  description:
-  return:
-  precondition:
-  postcondition:
+  description:  checks if the player is touching the enemy
+  return: bool
+  precondition: plat, positions, with and height are defined
+  postcondition:  checks if you are touching the enemy
   */
   bool touchEnemy(platform& plat, int x, int y, int w, int h);
 
+    /*
+     description: returns the value of score
+     return: int
+     precondition: score is defined
+     postcondition: score is returned
+     */
   int getScore();
 
+    /*
+     description: adds a value to score
+     return: none
+     precondition: s is defined
+     postcondition: s ia added to score
+     */
   void addScore(int s);
 
 
